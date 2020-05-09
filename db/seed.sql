@@ -21,4 +21,9 @@ VALUES
     ('Lawyer', 190000, 4);
 
 --Create insert for employee
-INSERT INTO employee (first_name, last_name, role_id) VALUES ('John', 'Wick', 1);
+INSERT INTO employee 
+    (first_name, last_name, role_id) 
+VALUES 
+    ('Branden', 'Langhals', 1),
+    ('Sam','Jackson', 1),
+    ('Burt','Reynolds', 1)
