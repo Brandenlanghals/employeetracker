@@ -14,7 +14,7 @@ function init() {
 
   loadMainPrompts();
 }
-
+//Prompts 
 async function loadMainPrompts() {
   const { choice } = await prompt([
     {
@@ -26,15 +26,6 @@ async function loadMainPrompts() {
           name: "View All Employees",
           value: "VIEW_EMPLOYEES"
         },
-        // {
-        //   name: "View Employees By Department",
-        //   value: "VIEW_EMPLOYEES_BY_DEPARTMENT"
-        // },
-        // {
-        //   name: "View Employee By Manager",
-        //   value: "VIEW_EMPLOYEES_BY_MANAGER"
-        // },
-
         {
           name: "Add Employee",
           value: "ADD_EMPLOYEE"
@@ -47,10 +38,6 @@ async function loadMainPrompts() {
           name: "Update Employee Role",
           value: "UPDATE_EMPLOYEE_ROLE"
         },
-        // {
-        //   name: "Update Employee Manager",
-        //   value: "UPDATE_EMPLOYEE_MANAGER"
-        // },
         {
           name: "View All Roles",
           value: "VIEW_ROLES"
@@ -115,7 +102,7 @@ async function loadMainPrompts() {
       return quit();
   }
 }
-//save
+//View Employees Function
 async function viewEmployees() {
   const employees = await db.findAllEmployees();
 
@@ -124,7 +111,7 @@ async function viewEmployees() {
 
   loadMainPrompts();
 }
-//Create viewEmployeesByDepartment function
+//View Employees By Department
 function viewEmployeesByDepartment() {
   inquirer
       .prompt({
@@ -144,9 +131,9 @@ function viewEmployeesByDepartment() {
           }
       });
 }
-//Create viewEmployeesByManager function
+//View Employees By Manager function
 function viewEmployeesByManager() {
-  connection.query(sqlqueries.viewEmployeesByManager(), function (err, results) {
+  connection.query(db.viewEmployeesByManager(), function (err, results) {
     if (err) throw err;
     console.table(results);
     loadMainPrompts();

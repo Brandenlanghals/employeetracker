@@ -41,7 +41,6 @@ class DB {
 			"SELECT employee.id, employee.first_name, employee.last_name, role.title, department.name AS department, role.salary, CONCAT(manager.first_name, ' ', manager.last_name) AS manager FROM employee LEFT JOIN role on employee.role_id = role.id LEFT JOIN department on role.department_id = department.id LEFT JOIN employee manager on manager.id = employee.manager_id;"
 		);
 	}
-  // Update the given employee's manager
 
   // Find all roles, join with departments to display the department name
   viewRoles() {
@@ -81,6 +80,5 @@ class DB {
 			"SELECT employee.id, employee.first_name, employee.last_name, role.title, department.name AS department, role.salary, CONCAT(manager.first_name, ' ', manager.last_name) AS manager FROM employee LEFT JOIN role on employee.role_id = role.id LEFT JOIN department on role.department_id = department.id LEFT JOIN employee manager on manager.id = employee.manager_id;"
 		);
 	}
-  // Find all employees by manager, join with departments and roles to display titles and department names
 }
 module.exports = new DB(connection);
